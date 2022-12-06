@@ -1,0 +1,15 @@
+tr,
+td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+td {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+}

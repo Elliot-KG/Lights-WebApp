@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bmp_binary-draw</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div id="app">
+    width: <input type="number" v-model="width">
+    height: <input type="number" v-model="height">
+    time: <input type="number" v-model="time">
+    loop? <input type="checkbox" v-model="loop">
+    <table>
+      <tr v-for="indexH in Number(height)">
+        <td v-for="indexW in Number(width)" @click="flipCell((indexH - 1),(indexW - 1))"
+          @mouseover="mouseover((indexH - 1),(indexW - 1), $event)" :style="cellStyle((indexH - 1),(indexW - 1))">
+
+        </td>
+      </tr>
+    </table>
+    <div>
+      {{Number(currentIndex) + 1}} / {{frames.length}}
+      <button @click="deleteFrame">-</button> <button @click="playButton">&gt;</button> <button
+        @click="addFrame">+</button>
+    </div>
+    <div> <button @click="prevFrame">&lt;</button> <button @click="nextFrame">&gt;</button> </div>
+    <textarea v-model="bitmapString" placeholder="Resulting Bitmap" rows="20" cols="30">
+     </textarea>
+    <textarea v-model="bitmapFramesString" placeholder="Resulting Bitmap Frames" rows="20" cols="30">
+    </textarea>
+
+  </div>
+  <script src="js/vue_dev.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
